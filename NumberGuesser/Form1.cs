@@ -16,10 +16,11 @@ namespace NumberGuesser
         public Form1()
         {
             InitializeComponent();
-            StartGuessCycle();
         }
         async void StartGuessCycle()
         {
+            startButton.Enabled = false;
+            
             int lowerBound = 1;
             int upperBound = 2001;
             int currentTry = 0;
@@ -30,8 +31,9 @@ namespace NumberGuesser
                 currentTry++;
                 await Task.Run(() =>
                 {
+                    
                     int number = random.Next(lowerBound, upperBound);
-                    MessageBoxForGuessing messageBox = new MessageBoxForGuessing($"Вы загадали число {number}");
+                    MessageBoxForGuessing messageBox = new MessageBoxForGuessing($"Вы загадали число {number}", "");
                     MessageBoxForGuessing.UserAnswer answer = (MessageBoxForGuessing.UserAnswer)messageBox.ShowDialog(); 
 
                     if(answer == MessageBoxForGuessing.UserAnswer.Lower)
@@ -48,13 +50,17 @@ namespace NumberGuesser
                     }
                 });
             }
-            MessageBox.Show($"На угадывание ушло {currentTry - 1} попыток");
+            MessageBox.Show($"На угадывание ушло {currentTry} попыток");
+            startButton.Enabled = true;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            StartGuessCycle();
+        }
     }
 }

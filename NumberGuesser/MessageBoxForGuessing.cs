@@ -16,10 +16,11 @@ namespace NumberGuesser
             Ok,
             Upper
         }
-        public MessageBoxForGuessing(string text)
+        public MessageBoxForGuessing(string text, string caption)
         {
             InitializeComponent();
             label1.Text = text;
+            Text = caption;
         }
 
         private void lowerButton_Click(object sender, EventArgs e)
