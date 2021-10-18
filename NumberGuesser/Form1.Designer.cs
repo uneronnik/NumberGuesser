@@ -35,6 +35,7 @@ namespace NumberGuesser
             // startButton
             // 
             this.startButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startButton.Font = new System.Drawing.Font("Tahoma", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.startButton.Location = new System.Drawing.Point(0, 0);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(232, 110);
